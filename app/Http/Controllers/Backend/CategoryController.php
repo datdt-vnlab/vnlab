@@ -12,7 +12,7 @@ class CategoryController extends Controller
 
     public function index(Request $request)
     {
-        $categories = Category::orderByDesc('created_at')->withCount('posts')->paginate(config('common.per_page'));
+        $categories = Category::orderByDesc('created_at')->withCount('posts')->paginate(100);
 
         return view('backend.categories.index', compact('categories'));
     }
